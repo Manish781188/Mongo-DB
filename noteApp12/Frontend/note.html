@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ <table border="1">
+    <thead><tr>
+        <th>Title</th>
+        <th>Body</th>
+        <th>User</th>
+        <th>Delete</th>
+    </tr></thead>
+    <tbody>
+        <!-- append -->
+        <tr>
+            <td>js</td>
+            <td>usestate</td>
+            <td>userId</td>
+            <td>👍</td>
+        </tr>
+    </tbody>
+ </table>
+</body>
+</html>
+<script>
+    function Note() {
+          fetch("http://localhost:8080/note", {
+            headers: {
+                "Authorization": localStorage.getItem("token")
+            },
+        }).then(res => res.json())
+            .then(res => {
+                console.log(res)
+            })
+            .catch(err => console.log(err.message))
+    }
+    Note()
+</script>
